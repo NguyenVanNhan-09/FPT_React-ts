@@ -10,14 +10,18 @@ function App() {
 
    const [newTodo, setNewTodo] = useState("");
    const [editingId, setEditingId] = useState(null);
+   const [editingTitle, setEditingTitle] = useState("");
    const handleInputChange = (e: any) => {
       setNewTodo(e.target.value);
    };
 
-   const handleEdit = (id: any) => {
-      const todoEdit = todos.find((todo) => todo.id === id);
-      setNewTodo(String(todoEdit?.title));
+   const handleEditChange = (e: any) => {
+      setEditingTitle(e.target.value);
+   };
+
+   const handleEdit = (id: any, title: any) => {
       setEditingId(id);
+      setEditingTitle(title);
    };
 
    const handleSubmit = (e: any) => {
@@ -46,24 +50,58 @@ function App() {
       }
    };
 
+   const handleCanacel = () => {
+      setNewTodo("");
+      setEditingId(null);
+   };
+   const hanldSave = (id: any) => {
+      setTodos(
+         todos.map((todo) =>
+            todo.id === id ? { ...todo, title: editingTitle } : todo
+         )
+      );
+      setEditingId(null);
+      setEditingTitle("");
+   };
+
    return (
       <>
          <ul>
             {todos.map((item) => {
                return (
                   <li key={item.id}>
-                     {item.title} {item.id}
-                     <button onClick={() => handleEdit(item.id)}>Edit</button>
-                     <button onClick={() => handleDelete(item.id)}>
-                        Delete
-                     </button>
+                     {editingId === item.id ? (
+                        <>
+                           <input
+                              type="text"
+                              value={editingTitle}
+                              onChange={handleEditChange}
+                           />
+                           <button onClick={() => hanldSave(item.id)}>
+                              Save
+                           </button>
+                           <button onClick={handleCanacel}>Cancel</button>
+                        </>
+                     ) : (
+                        <>
+                           {item.title} {item.id}
+                           <button
+                              onClick={() => handleEdit(item.id, item.title)}
+                           >
+                              Edit
+                           </button>
+                           <button onClick={() => handleDelete(item.id)}>
+                              Delete
+                           </button>
+                        </>
+                     )}
                   </li>
                );
             })}
          </ul>
 
          <form action="" onSubmit={handleSubmit}>
-            <label htmlFor="">Add todo</label>
+            {/* <label htmlFor="">Add todo</label> */}
             <input type="text" value={newTodo} onChange={handleInputChange} />
             <button type="submit">Submit</button>
          </form>

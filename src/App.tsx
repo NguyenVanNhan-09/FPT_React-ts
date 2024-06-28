@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import RTodo from "./interface/todo";
+import instance from "./API";
 
 function App() {
-   const [todos, setTodos] = useState([
-      { id: 1, title: "Learn Vite" },
-      { id: 2, title: "Learn React" },
-      { id: 3, title: "Learn Awesome" },
-   ]);
+   // interface TProduct {
+   //    id: number;
+   //    name: string;
+   //    image: string;
+   //    price: number;
+   //    category: string;
+   // }
 
+   const [todos, setTodos] = useState<RTodo[]>([]);
    const [newTodo, setNewTodo] = useState("");
    const [editingId, setEditingId] = useState(null);
    const [editingTitle, setEditingTitle] = useState("");
@@ -26,7 +31,6 @@ function App() {
 
    const handleSubmit = (e: any) => {
       e.preventDefault();
-
       if (editingId) {
          setTodos(
             todos.map((todo) => {
@@ -37,7 +41,27 @@ function App() {
          );
          setEditingId(null);
       } else {
-         setTodos([...todos, { id: todos.length + 1, title: newTodo }]);
+         // setTodos([
+         //    ...todos,
+         //    { id: todos.length + 1, title: newTodo, complete: true },
+         // ]);
+
+         const data: RTodo = {
+            title: newTodo,
+            complete: true,
+         };
+         fetch("http://localhost:3000/todos", {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+         })
+            .then((response) => response.json())
+            .then((data: RTodo) => {
+               setTodos([...todos, data]);
+               alert("Thêm mới thành công");
+            });
       }
 
       setNewTodo("");
@@ -46,7 +70,18 @@ function App() {
    const handleDelete = (id: any) => {
       const isConfirm = confirm("you sure ?");
       if (isConfirm) {
-         setTodos(todos.filter((todo) => todo.id !== id));
+         fetch("http://localhost:3000/todos/" + id, {
+            method: "DELETE",
+            headers: {
+               "Content-Type": "application/json",
+            },
+         })
+            .then((response) => response.json())
+            .then((data: RTodo) => {
+               const newtodos = todos.filter((todo) => todo.id !== id);
+               setTodos(newtodos);
+               alert("Xóa thành công");
+            });
       }
    };
 
@@ -54,6 +89,7 @@ function App() {
       setNewTodo("");
       setEditingId(null);
    };
+
    const hanldSave = (id: any) => {
       setTodos(
          todos.map((todo) =>
@@ -63,6 +99,13 @@ function App() {
       setEditingId(null);
       setEditingTitle("");
    };
+
+   useEffect(() => {
+      (async () => {
+         const { data } = await instance.get("/todos");
+         setTodos(data);
+      })();
+   }, []);
 
    return (
       <>
@@ -84,7 +127,7 @@ function App() {
                         </>
                      ) : (
                         <>
-                           {item.title} {item.id}
+                           {item.title}
                            <button
                               onClick={() => handleEdit(item.id, item.title)}
                            >
@@ -102,7 +145,7 @@ function App() {
 
          <form action="" onSubmit={handleSubmit}>
             {/* <label htmlFor="">Add todo</label> */}
-            <input type="text" value={newTodo} onChange={handleInputChange} />
+            <input type="text" value={newTodo} onInput={handleInputChange} />
             <button type="submit">Submit</button>
          </form>
       </>

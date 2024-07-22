@@ -1,32 +1,20 @@
-// import { useForm } from "react-hook-form";
-import TProduct from "../interface/products";
-import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import TProduct, { fromType } from "../interface/products";
 import { productCT } from "../context/productcontext";
-import Service from "../service/products";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-const EditProduct = () => {
+export const AddProduct = () => {
    const navi = useNavigate();
-   const { register, handleSubmit } = useForm<TProduct>();
-   const [product, setProduct] = useState<TProduct | null>(null);
-   const { id } = useParams();
-   const { hanldeUpdate } = useContext(productCT);
-   const productService = new Service();
-   useEffect(() => {
-      (async () => {
-         const data = await productService.GetById(id as any);
-         setProduct(data);
-      })();
-   }, [id]);
-
+   const { register, handleSubmit } = useForm<fromType>();
+   const { handleSubmitAdd } = useContext(productCT);
    const onSubmit = async (data: TProduct) => {
-      await hanldeUpdate(data, id);
+      await handleSubmitAdd(data);
       navi("/home");
+      location.reload();
    };
-
    return (
-      <>
+      <div>
          <h1 className="text-3xl text-center font-bold">Add Product </h1>
          <form
             className="max-w-sm mx-auto mb-6"
@@ -41,7 +29,6 @@ const EditProduct = () => {
                   id="name"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                   {...register("name")}
-                  defaultValue={product?.name}
                />
             </div>
             <div className="mb-5">
@@ -53,7 +40,6 @@ const EditProduct = () => {
                   id="price"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                   {...register("price")}
-                  defaultValue={product?.price}
                />
             </div>
             <div className="mb-5">
@@ -65,7 +51,6 @@ const EditProduct = () => {
                   id="category"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                   {...register("category")}
-                  defaultValue={product?.category}
                />
             </div>
             <button
@@ -75,8 +60,6 @@ const EditProduct = () => {
                Submit
             </button>
          </form>
-      </>
+      </div>
    );
 };
-
-export default EditProduct;

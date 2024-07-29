@@ -1,36 +1,57 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 import "./App.css";
-import { CarouselDefault } from "./component/Banner";
-import Footer from "./component/Footer";
-import Header from "./component/Header";
-import Home from "./page/Home";
 import Category from "./page/Category";
 import Detail from "./page/Detail";
+import Admin from "./layout/Admin";
+import Client from "./layout/Client";
+import HomeAdmin from "./component/HomeAdmin";
+import Home from "./page/Home";
+import ListProducts from "./page/Admin/ListProducts";
+import ProductContext from "./context/ProductsContext";
+import CategoryContext from "./context/CategoryContext";
+import AddProduct from "./page/Admin/AddProduct";
+import EditProduct from "./page/Admin/EditProduct";
+import AddCategory from "./page/Admin/AddCategory";
 
 function App() {
-   const location = useLocation();
-   const hideBanner =
-      location.pathname.includes("/category") ||
-      location.pathname.includes("/detail");
-   return (
-      <>
-         <div className="bg-[#F8F4F0] flex flex-col justify-between min-h-[100vh]">
-            <Header />
-            {!hideBanner && <CarouselDefault />}
-            <div className="">
-               <Routes>
-                  <Route path="/" element={<Navigate to="home" />} />
-                  <Route path="home" element={<Home />} />
-                  <Route path="category" element={<Category />} />
-                  <Route path="detail" element={<Detail />} />
-               </Routes>
-            </div>
-            <div className="shadow-[1000px_-240px_202px_50px_rgb(188,222,182)]">
-               <Footer />
-            </div>
-         </div>
-      </>
-   );
+   // Routers
+   const routes = useRoutes([
+      {
+         path: "",
+         element: (
+            <ProductContext>
+               <CategoryContext>
+                  <Client />
+               </CategoryContext>
+            </ProductContext>
+         ),
+         children: [
+            { path: "", element: <Home /> },
+            { path: "category/:id", element: <Category /> },
+            { path: "detail", element: <Detail /> },
+         ],
+      },
+      {
+         path: "/admin",
+         element: (
+            <ProductContext>
+               <CategoryContext>
+                  <Admin />
+               </CategoryContext>
+            </ProductContext>
+         ),
+         children: [
+            { path: "", element: <Navigate to="home" /> },
+            { path: "home", element: <HomeAdmin /> },
+            { path: "products-list", element: <ListProducts /> },
+            { path: "products-add", element: <AddProduct /> },
+            { path: "category-add", element: <AddCategory /> },
+            { path: "products-update/:id", element: <EditProduct /> },
+         ],
+      },
+   ]);
+
+   return routes;
 }
 
 export default App;

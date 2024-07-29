@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { categoryCT } from "../context/CategoryContext";
+import { TCategories } from "../interface/categories";
+import { Link } from "react-router-dom";
+
 const Header = () => {
+   const { categories } = useContext(categoryCT);
    return (
       <>
          <header className=" bg-gradient-to-r from-[#4E7C32] to-[#665345] font-[Poppins]">
@@ -80,10 +86,13 @@ const Header = () => {
                         </a>
                         <div className="absolute hidden z-10 top-[100%] min-w-[110px] min-h-[74px] bg-white rounded-sm shadow-lg group-hover:block">
                            <ul className="pl-7 pr-5 py-5 list-disc">
-                              <li className="pb-3">Eckige Töpfe</li>
-                              <li className="pb-3">Runde Töpfe</li>
-                              <li className="pb-3">Untersetzer</li>
-                              <li className="">Pflanzschalen</li>
+                              {categories.map((item: TCategories) => (
+                                 <li className="pb-3">
+                                    <Link to={`/category/${item.id}`}>
+                                       {item.name}
+                                    </Link>
+                                 </li>
+                              ))}
                            </ul>
                         </div>
                      </li>

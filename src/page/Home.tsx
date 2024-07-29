@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import ContactEmail from "../component/ContactEmail";
 import Product from "../component/Product";
+import { productCT } from "../context/ProductsContext";
+import { TProduct } from "../interface/products";
 
 const Home = () => {
-   // BCDEB6
+   const { products } = useContext(productCT);
    return (
       <main className="">
          <h3 className="text-[#505F4E] text-3xl mt-8 mb-4 w-[1210px] mx-auto max-w-full font-bold">
@@ -11,58 +14,33 @@ const Home = () => {
          <div className="bg-white">
             <div className="w-[1210px] mx-auto max-w-full py-[50px]">
                <div className="lg:grid-cols-4 gap-8 grid ">
-                  <div className="col-span-1">
-                     <a href="#" className="group block">
-                        <img
-                           src="../../src/assets/tukinh.png"
-                           alt=""
-                           className="h-full w-full object-contain sm:h-[250px] py-6 px-10"
-                        />
+                  {products.map((product: TProduct) => (
+                     <div className="col-span-1">
+                        <a href="#" className="group block">
+                           <img
+                              src={product.image}
+                              alt=""
+                              className="h-full w-full object-contain sm:h-[250px] py-6 px-10"
+                           />
 
-                        <div className="mt-1.5">
-                           <p className="text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                              Töpfe
-                           </p>
-                           <div className="mt-3 flex justify-between items-center text-sm">
-                              <h3 className="text-xs text-gray-500 ">
-                                 5 by 5 pots for planting
-                              </h3>
-
-                              <p className="text-gray-900 line-through text-[12.76px]">
-                                 $ 6130.00
+                           <div className="mt-1.5">
+                              <p className="text-gray-900 group-hover:underline group-hover:underline-offset-4">
+                                 {product.title}
                               </p>
-                           </div>
-                        </div>
-                     </a>
-                  </div>
-                  <div className="col-span-1">
-                     <Product />
-                  </div>
-                  <div className="col-span-1">
-                     <a href="#" className="group block">
-                        <img
-                           src="../../src/assets/daythung.png"
-                           alt=""
-                           className="h-full w-full object-contain sm:h-[250px] py-6 px-10"
-                        />
+                              <div className="mt-3 flex justify-between items-center text-sm">
+                                 <h3 className="text-xs text-gray-500 ">
+                                    description
+                                 </h3>
 
-                        <div className="mt-1.5">
-                           <p className="text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                              Töpfe
-                           </p>
-                           <div className="mt-3 flex justify-between items-center text-sm">
-                              <h3 className="text-xs text-gray-500 ">
-                                 5 by 5 pots for planting
-                              </h3>
-
-                              <p className="text-gray-900 line-through text-[12.76px]">
-                                 $ 6130.00
-                              </p>
+                                 <p className="text-gray-900 text-[12.76px]">
+                                    ${product.price}
+                                 </p>
+                              </div>
                            </div>
-                        </div>
-                     </a>
-                  </div>
-                  <div className="col-span-1 relative">
+                        </a>
+                     </div>
+                  ))}
+                  {/* <div className="col-span-1 relative">
                      <span className="absolute py-1  px-2 bg-[#1E2832] text-white text-[10.94px] uppercase">
                         Sale
                      </span>
@@ -91,7 +69,7 @@ const Home = () => {
                            </div>
                         </div>
                      </a>
-                  </div>
+                  </div> */}
                </div>
             </div>
          </div>

@@ -1,0 +1,82 @@
+{
+  "products": [
+    {
+      "title": "Product 16",
+      "price": 108,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOk_Z2l6Qsdg6BO3fhHSJZs1O3Wv4QQknng&s",
+      "category": "1",
+      "id": "1"
+    },
+    {
+      "title": "Product 15",
+      "price": 1002,
+      "image": "https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg",
+      "category": "1",
+      "id": "2"
+    },
+    {
+      "title": "Product 12",
+      "price": 10022,
+      "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
+      "category": "1",
+      "id": "3"
+    },
+    {
+      "title": "Product 1",
+      "price": 1001,
+      "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+      "category": "1",
+      "id": "4"
+    },
+    {
+      "title": "Product test udd",
+      "price": 9122004,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrZqTCInyg6RfYC7Ape20o-EWP1EN_A8fOA&s",
+      "category": "1",
+      "id": "aa9c"
+    },
+    {
+      "title": "test categoryc",
+      "price": 91220042,
+      "image": "https://imageio.forbes.com/specials-images/imageserve/5faad4255239c9448d6c7bcd/Best-Animal-Photos-Contest--Close-Up-Of-baby-monkey/960x0.jpg?format=jpg&width=960",
+      "category": "3",
+      "id": "dc4c"
+    },
+    {
+      "title": "fgfgfgccc",
+      "price": 112,
+      "image": "https://deepai.org/static/images/cyberpunkdolphin.png",
+      "category": "1",
+      "id": "bc6a"
+    },
+    {
+      "title": "hi2 q",
+      "price": 1111,
+      "image": "https://picsum.photos/300/200",
+      "category": "3",
+      "id": "a5e1"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Category 1"
+    },
+    {
+      "id": "2",
+      "name": "Category 2"
+    },
+    {
+      "id": "3",
+      "name": "Category 3"
+    },
+    {
+      "id": "d78f",
+      "name": "test 1"
+    },
+    {
+      "id": "bd59",
+      "name": "á"
+    }
+  ]
+}

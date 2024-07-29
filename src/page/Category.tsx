@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import ContactEmail from "../component/ContactEmail";
+import { productCT } from "../context/ProductsContext";
+import { TProduct } from "../interface/products";
+import { useParams } from "react-router";
 
 const Category = () => {
+   const { id } = useParams();
+   const { products } = useContext(productCT);
    return (
       <>
          <div className="bg-white">
@@ -88,58 +94,66 @@ const Category = () => {
                <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-12 mb-8">
                   <div className="rounded-lg lg:col-span-2">
                      <div className="grid grid-cols-3 gap-8">
-                        <a
-                           href="/detail"
-                           className="col-span-1 p-3 mb-5 relative"
-                        >
-                           <a href="#" className="group block">
-                              <img
-                                 src="../../src/assets/c-1-removebg-preview.png"
-                                 alt=""
-                                 className="h-[200px] w-[200px] object-contain"
-                              />
+                        {products
+                           .filter(
+                              (product: TProduct) =>
+                                 product.category === `${id}`
+                           )
+                           .map((product: TProduct) => (
+                              <a
+                                 href="#"
+                                 className="col-span-1 p-3 mb-5 relative"
+                              >
+                                 <a href="#" className="group block">
+                                    <img
+                                       src={product.image}
+                                       alt=""
+                                       className="h-[200px] w-[200px] object-contain"
+                                    />
 
-                              <div className="mt-1.5">
-                                 <p className="text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                                    Round plant pots
-                                 </p>
-                                 <div className="mt-1 flex text-sm">
-                                    <p className="pr-2 text-[#505F4E] ">
-                                       $ 6130.00
-                                    </p>
-                                    <p className=" line-through text-[#828282]">
-                                       $ 6130.00
-                                    </p>
+                                    <div className="mt-1.5">
+                                       <p className="text-gray-900 group-hover:underline group-hover:underline-offset-4">
+                                          {product.title}
+                                       </p>
+                                       <div className="mt-1 flex text-sm">
+                                          <p className="pr-2 text-[#505F4E] ">
+                                             {product.price}
+                                          </p>
+                                          <p className=" line-through text-[#828282]">
+                                             $ 6130.00
+                                          </p>
+                                       </div>
+                                    </div>
+                                 </a>
+                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 ease-in-out hover:opacity-100">
+                                    <div className="flex shadow-xl">
+                                       <button className="flex justify-center items-center w-[40.14px] h-[34px] bg-white">
+                                          <img
+                                             src="../../src/assets/hover-icon-1.png"
+                                             alt=""
+                                             className="w-[17px] h-[17px]"
+                                          />
+                                       </button>
+                                       <button className="flex justify-center items-center w-[40.14px] h-[34px] bg-[#4E7C32] mx-3">
+                                          <img
+                                             src="../../src/assets/hover-icon-2.png"
+                                             alt=""
+                                             className="w-[17px] h-[17px]"
+                                          />
+                                       </button>
+                                       <button className="flex justify-center items-center w-[40.14px] h-[34px] bg-white">
+                                          <img
+                                             src="../../src/assets/hover-icon-3.png"
+                                             alt=""
+                                             className="w-[17px] h-[17px]"
+                                          />
+                                       </button>
+                                    </div>
                                  </div>
-                              </div>
-                           </a>
-                           <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 ease-in-out hover:opacity-100">
-                              <div className="flex shadow-xl">
-                                 <button className="flex justify-center items-center w-[40.14px] h-[34px] bg-white">
-                                    <img
-                                       src="../../src/assets/hover-icon-1.png"
-                                       alt=""
-                                       className="w-[17px] h-[17px]"
-                                    />
-                                 </button>
-                                 <button className="flex justify-center items-center w-[40.14px] h-[34px] bg-[#4E7C32] mx-3">
-                                    <img
-                                       src="../../src/assets/hover-icon-2.png"
-                                       alt=""
-                                       className="w-[17px] h-[17px]"
-                                    />
-                                 </button>
-                                 <button className="flex justify-center items-center w-[40.14px] h-[34px] bg-white">
-                                    <img
-                                       src="../../src/assets/hover-icon-3.png"
-                                       alt=""
-                                       className="w-[17px] h-[17px]"
-                                    />
-                                 </button>
-                              </div>
-                           </div>
-                        </a>
-                        <a href="#" className="col-span-1 p-3 mb-5 relative">
+                              </a>
+                           ))}
+
+                        {/* <a href="#" className="col-span-1 p-3 mb-5 relative">
                            <span className="absolute py-[2px] rounded-md px-3 bg-[#505F4E] text-white text-[13.16px]">
                               Sell
                            </span>
@@ -507,7 +521,7 @@ const Category = () => {
                                  </button>
                               </div>
                            </div>
-                        </a>
+                        </a> */}
                      </div>
                   </div>
                   <div className="ml-8">

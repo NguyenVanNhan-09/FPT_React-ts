@@ -41,6 +41,16 @@ class ProductService {
          throw new Error("Lỗi");
       }
    };
+   Search = async (keyword: any) => {
+      try {
+         const { data } = await instance.get(`/products?title_like=${keyword}`);
+         console.log(keyword);
+         console.log(data);
+         return data;
+      } catch (error) {
+         console.log(error);
+      }
+   };
 }
 
 export default ProductService;

@@ -69,10 +69,10 @@ const Category = () => {
                         className="h-12  border border-[#BDBDBD] text-[#BDBDBD] bg-transparent text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none min-w-[221.89px]"
                      >
                         <option selected>Newest</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
+                        <option defaultValue="US">United States</option>
+                        <option defaultValue="CA">Canada</option>
+                        <option defaultValue="FR">France</option>
+                        <option defaultValue="DE">Germany</option>
                      </select>
                   </div>
                   <div className="flex items-center bg-transparent">
@@ -84,10 +84,10 @@ const Category = () => {
                         className="h-12 border border-[#BDBDBD] text-[#BDBDBD] bg-transparent text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none min-w-[221.89px]"
                      >
                         <option selected>Default</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
+                        <option defaultValue="US">United States</option>
+                        <option defaultValue="CA">Canada</option>
+                        <option defaultValue="FR">France</option>
+                        <option defaultValue="DE">Germany</option>
                      </select>
                   </div>
                </div>

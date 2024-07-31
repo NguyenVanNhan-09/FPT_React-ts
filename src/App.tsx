@@ -12,6 +12,7 @@ import CategoryContext from "./context/CategoryContext";
 import AddProduct from "./page/Admin/AddProduct";
 import EditProduct from "./page/Admin/EditProduct";
 import AddCategory from "./page/Admin/AddCategory";
+import Search from "./component/Search";
 
 function App() {
    // Routers
@@ -27,8 +28,9 @@ function App() {
          ),
          children: [
             { path: "", element: <Home /> },
+            { path: "search", element: <Search /> },
             { path: "category/:id", element: <Category /> },
-            { path: "detail", element: <Detail /> },
+            { path: "product-detail/:id", element: <Detail /> },
          ],
       },
       {

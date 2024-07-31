@@ -92,11 +92,11 @@ const AddProduct = () => {
                      required: "Category is required",
                   })}
                >
-                  <option value="" disabled selected>
+                  <option defaultValue="" disabled selected>
                      Category...
                   </option>
                   {categories.map((i: TCategories) => (
-                     <option value={i.id}>{i.name}</option>
+                     <option defaultValue={i.id}>{i.name}</option>
                   ))}
                   {/* Thêm các tùy chọn khác tại đây */}
                </select>

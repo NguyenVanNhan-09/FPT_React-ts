@@ -7,7 +7,8 @@ const Client = () => {
    const location = useLocation();
    const hideBanner =
       location.pathname.includes("/category") ||
-      location.pathname.includes("/detail") ||
+      location.pathname.includes("/product-detail/") ||
+      location.pathname.includes("/search") ||
       location.pathname.includes("/admin");
    const hideHeaderFooter = location.pathname.includes("/admin");
    return (

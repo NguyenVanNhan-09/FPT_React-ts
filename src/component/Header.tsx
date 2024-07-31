@@ -1,22 +1,36 @@
 import { useContext } from "react";
 import { categoryCT } from "../context/CategoryContext";
 import { TCategories } from "../interface/categories";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Header = () => {
+   const navi = useNavigate();
    const { categories } = useContext(categoryCT);
+   const { register, handleSubmit } = useForm();
+   const onSubmit = (data: any) => {
+      const { keywords } = data;
+      navi(`search?keywords=${keywords}`);
+   };
    return (
       <>
          <header className=" bg-gradient-to-r from-[#4E7C32] to-[#665345] font-[Poppins]">
             <div className="shadow-sm font-[sans-serif] min-h-[70px]  w-[1126px] max-w-full mx-auto">
                <div className="flex flex-wrap items-center justify-between sm:px-10 px-6 py-3 relative lg:gap-y-4 gap-y-6 gap-x-4 border-b border-white">
-                  <form className="relative ml-[140px] bg-gray-100 flex border-2 border-transparent rounded-sm h-11 lg:w-2/4 ">
+                  <form
+                     onSubmit={handleSubmit(onSubmit)}
+                     className="relative ml-[140px] bg-gray-100 flex border-2 border-transparent rounded-sm h-11 lg:w-2/4 "
+                  >
                      <input
-                        type="email"
+                        type="text"
                         placeholder="Suchen Sie nach Produkten, Marken und mehr"
                         className="w-full outline-none text-[#333] text-sm pl-4 border-transparent"
+                        {...register("keywords")}
                      />
-                     <button className="absolute right-3 top-2/4 translate-y-[-50%] ">
+                     <button
+                        type="submit"
+                        className="absolute right-3 top-2/4 translate-y-[-50%] "
+                     >
                         <i className=" ti-search text-sm font-extrabold"></i>
                      </button>
                   </form>
@@ -87,7 +101,7 @@ const Header = () => {
                         <div className="absolute hidden z-10 top-[100%] min-w-[110px] min-h-[74px] bg-white rounded-sm shadow-lg group-hover:block">
                            <ul className="pl-7 pr-5 py-5 list-disc">
                               {categories.map((item: TCategories) => (
-                                 <li className="pb-3">
+                                 <li key={item.id} className="pb-3">
                                     <Link to={`/category/${item.id}`}>
                                        {item.name}
                                     </Link>

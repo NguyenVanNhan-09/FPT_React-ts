@@ -82,7 +82,7 @@ const ListProducts = () => {
                                     <div className="flex items-center py-5 px-5 ">
                                        <input
                                           type="checkbox"
-                                          value=""
+                                          defaultValue=""
                                           className="w-5 h-5 appearance-none border border-gray-300  rounded-md mr-2 hover:border-indigo-500 hover:bg-indigo-100 checked:bg-no-repeat checked:bg-center checked:border-indigo-500 checked:bg-indigo-100"
                                        />
                                     </div>
@@ -104,9 +104,11 @@ const ListProducts = () => {
                                  </td>
                                  <td className="p-5 whitespace-nowrap text-sm leading-6 font-medium text-gray-900">
                                     <div className="flex justify-center w-20 items-center gap-1">
-                                       {categories.find(
-                                          (c: any) => c.id === item.category
-                                       )?.name ?? "N/A"}
+                                       {
+                                          categories.find(
+                                             (c: any) => c.id === item.category
+                                          ).name
+                                       }
                                     </div>
                                  </td>
                                  <td className="flex p-5 items-center gap-0.5">

@@ -3,9 +3,13 @@ import ContactEmail from "../component/ContactEmail";
 import Product from "../component/Product";
 import { productCT } from "../context/ProductsContext";
 import { TProduct } from "../interface/products";
+import { categoryCT } from "../context/CategoryContext";
+import { TCategories } from "../interface/categories";
+import { Link } from "react-router-dom";
 
 const Home = () => {
    const { products } = useContext(productCT);
+   const { categories } = useContext(categoryCT);
    return (
       <main className="">
          <h3 className="text-[#505F4E] text-3xl mt-8 mb-4 w-[1210px] mx-auto max-w-full font-bold">
@@ -16,7 +20,10 @@ const Home = () => {
                <div className="lg:grid-cols-4 gap-8 grid ">
                   {products.map((product: TProduct) => (
                      <div className="col-span-1">
-                        <a href="#" className="group block">
+                        <Link
+                           to={`product-detail/${product.id}`}
+                           className="group block"
+                        >
                            <img
                               src={product.image}
                               alt=""
@@ -37,7 +44,7 @@ const Home = () => {
                                  </p>
                               </div>
                            </div>
-                        </a>
+                        </Link>
                      </div>
                   ))}
                   {/* <div className="col-span-1 relative">
@@ -133,18 +140,29 @@ const Home = () => {
             Kategorien
          </h3>
          <div className="px-[120px] pt-[48px] pb-[103px] mx-auto grid grid-cols-4 gap-5 border-t-2 border-[#DFDCD8] ">
-            <div className="col-span-1 rounded-md relative cursor-pointer">
-               <img
-                  src="../../src/assets/k-1.png "
-                  alt=""
-                  className="h-full w-full object-contain"
-               />
-               <div className="absolute top-4 right-3 items-end text-white">
-                  <div className="text-lg font-bold">Beleuchtung</div>
-                  <span className="text-xs">30 items</span>
-               </div>
-            </div>
-            <div className="col-span-1 rounded-md relative cursor-pointer">
+            {categories.map((item: TCategories) => {
+               const productCount = products.filter(
+                  (product: TProduct) => product.category === item.id
+               ).length;
+               return (
+                  <Link
+                     to={`/category/${item.id}`}
+                     className="col-span-1 rounded-md relative cursor-pointer"
+                  >
+                     <img
+                        src={item.image}
+                        alt=""
+                        className="h-full w-full min-w-[303px] min-h-[368px] object-cover"
+                     />
+                     <div className="absolute top-4 right-3 items-end text-white">
+                        <div className="text-lg font-bold">{item.name}</div>
+                        <span className="text-xs">{productCount} items</span>
+                     </div>
+                  </Link>
+               );
+            })}
+
+            {/* <div className="col-span-1 rounded-md relative cursor-pointer">
                <img
                   src="../../src/assets/k-2-ud-2.png"
                   alt=""
@@ -220,7 +238,7 @@ const Home = () => {
                   <div className="text-lg font-bold">Lüftung & Klimaanlage</div>
                   <span className="text-xs">20 items</span>
                </div>
-            </div>
+            </div> */}
          </div>
          <ContactEmail />
       </main>

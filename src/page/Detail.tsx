@@ -1,6 +1,33 @@
+import { useParams } from "react-router-dom";
 import ContactEmail from "../component/ContactEmail";
+import ProductService from "../service/products";
+import { useContext, useEffect, useState } from "react";
+import { TProduct } from "../interface/products";
+import { TCategories } from "../interface/categories";
+import { categoryCT } from "../context/CategoryContext";
 
 const Detail = () => {
+   const { id } = useParams();
+   const productService = new ProductService();
+   const { categories } = useContext(categoryCT);
+   const [product, setProduct] = useState<TProduct | null>(null);
+
+   useEffect(() => {
+      (async () => {
+         try {
+            const data = await productService.GetById(id as any);
+            setProduct(data);
+         } catch (error) {
+            console.error("Error fetching product:", error);
+         }
+      })();
+   }, [id]);
+
+   // Kiểm tra các giá trị trước khi truy cập thuộc tính `name`
+   const categoryName =
+      categories && product
+         ? categories.find((c: TCategories) => c.id === product.category)?.name
+         : "Category not found";
    return (
       <>
          <div className="bg-white pt-[100px]">
@@ -10,7 +37,7 @@ const Detail = () => {
                      <div className="w-full lg:sticky top-0 text-center">
                         <div className="flex w-full justify-center mb-8">
                            <img
-                              src="../../src/assets/thungracdetail-removebg-preview.png"
+                              src={product?.image}
                               alt="Product"
                               className=" w-[355px] h-[355px] rounded-md object-cover object-top"
                            />
@@ -18,17 +45,17 @@ const Detail = () => {
 
                         <div className="flex flex-wrap gap-4 justify-center mx-auto mt-4">
                            <img
-                              src="../../src/assets/thungracdetail-removebg-preview.png"
+                              src={product?.image}
                               alt="Product1"
                               className="w-16 cursor-pointer rounded-md outline"
                            />
                            <img
-                              src="../../src/assets/thungracdetail-removebg-preview.png"
+                              src={product?.image}
                               alt="Product2"
                               className="w-16 cursor-pointer rounded-md"
                            />
                            <img
-                              src="../../src/assets/thungracdetail-removebg-preview.png"
+                              src={product?.image}
                               alt="Product3"
                               className="w-16 cursor-pointer rounded-md"
                            />
@@ -37,10 +64,10 @@ const Detail = () => {
                      <div>
                         <div className="lg:col-span-2">
                            <span className="text-sm text-[#4E7C32] uppercase font-bold">
-                              Plant
+                              {categoryName}
                            </span>
                            <h2 className="text-[44px] font-bold text-[#1D2025]">
-                              Square cultivation pots 0.27 to 2 litres
+                              {product?.title}
                            </h2>
                            {/* description */}
                            <div className="flex space-x-2 mt-4 text-[16px] text-[#68707D] ">
@@ -51,7 +78,7 @@ const Detail = () => {
                            {/* Price */}
                            <div className="flex flex-wrap items-center gap-4 mt-8">
                               <p className="text-[#1D2025] text-3xl font-bold">
-                                 $125.00
+                                 $ {product?.price}
                               </p>
                               <span className="text-[#505F4E] text-base py-1 px-3 rounded-lg bg-[#FFEDE0] font-extrabold">
                                  50%
@@ -76,7 +103,7 @@ const Detail = () => {
                                        type="number"
                                        className="focus:outline-none text-center w-full font-bold bg-[#F7F8FD] text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-[#505F4E]  outline-none"
                                        name="custom-input-number"
-                                       value="3"
+                                       defaultValue="3"
                                     ></input>
                                     <button
                                        data-action="increment"
@@ -128,7 +155,7 @@ const Detail = () => {
                      <div className="w-[50%]">
                         <div className="flex items-center">
                            <img
-                              src="../../src/assets/thungracdetail-removebg-preview.png"
+                              src={product?.image}
                               alt=""
                               className="w-[183px] h-[183px] cursor-pointer rounded-md"
                            />

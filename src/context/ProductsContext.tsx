@@ -16,7 +16,7 @@ const ProductContext = ({ children }: Props) => {
          const { data } = await productService.GetAll();
          setProducts(data);
       })();
-   });
+   }, []);
    const handleDelete = async (id: number | string) => {
       try {
          if (confirm("Are you sure you want to delete ?")) {

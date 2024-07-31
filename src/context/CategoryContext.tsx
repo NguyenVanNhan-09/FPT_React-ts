@@ -16,7 +16,7 @@ const CategoryContext = ({ children }: Props) => {
          const { data } = await categoryService.GetAll();
          setCategories(data);
       })();
-   });
+   }, []);
    const handleDelete = async (id: number | string) => {
       try {
          if (confirm("Are you sure you want to delete ?")) {

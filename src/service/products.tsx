@@ -1,3 +1,4 @@
+import axios from "axios";
 import instance from "../API";
 import { fromType } from "../interface/products";
 class ProductService {
@@ -46,6 +47,17 @@ class ProductService {
          const { data } = await instance.get(`/products?title_like=${keyword}`);
          console.log(keyword);
          console.log(data);
+         return data;
+      } catch (error) {
+         console.log(error);
+      }
+   };
+   UploadImageProductToCloudinary = async (formdata: any) => {
+      try {
+         const { data } = await axios.post(
+            `https://api.cloudinary.com/v1_1/dbaq8kdwn/upload`,
+            formdata
+         );
          return data;
       } catch (error) {
          console.log(error);

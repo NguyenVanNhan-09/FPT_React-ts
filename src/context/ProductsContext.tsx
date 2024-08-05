@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 import { TProduct, fromType } from "../interface/products";
 import ProductService from "../service/products";
+import { Bounce, toast } from "react-toastify";
 
 type Props = {
    children: React.ReactNode;
@@ -20,13 +21,36 @@ const ProductContext = ({ children }: Props) => {
    const handleDelete = async (id: number | string) => {
       try {
          if (confirm("Are you sure you want to delete ?")) {
-            const { data } = await productService.DeleteProduct(id);
-            alert(`Delete ${data} successfully !!!`);
+            await productService.DeleteProduct(id);
+            toast.success("xóa thành công!!!", {
+               position: "top-center",
+               autoClose: 2000,
+               hideProgressBar: false,
+               closeOnClick: true,
+               pauseOnHover: false,
+               draggable: true,
+               progress: undefined,
+               theme: "light",
+               transition: Bounce,
+            });
             setProducts(
                products.filter((product: TProduct) => product.id !== id)
             );
          }
-      } catch (error) {}
+      } catch (error) {
+         console.log(error);
+         toast.error("Lỗi! Vui lòng thử lại sau...", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+         });
+      }
    };
 
    const hanldeUpdate = async (formData: fromType, id: number | string) => {
@@ -36,19 +60,51 @@ const ProductContext = ({ children }: Props) => {
             product.id == id ? data : product
          );
          setProducts(newProducts);
-         alert(`Update Successfully!!!`);
+         toast.success("Sửa thành công!!!", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+         });
       } catch (error) {
          console.log(error);
+         toast.error("Lỗi! Vui lòng thử lại sau...", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+         });
       }
    };
 
    const handleSubmitAdd = async (formData: fromType) => {
       try {
          const { data } = await productService.AddProduct(formData);
+         alert("thêm thành công");
          setProducts([...products, data]);
-         alert(`Add Successfully!!!`);
       } catch (error) {
          console.log(error);
+         toast.error("Lỗi! Vui lòng thử lại sau...", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+         });
       }
    };
    return (

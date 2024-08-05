@@ -12,6 +12,8 @@ import { categoryCT } from "../../context/CategoryContext";
 const productSchema = Joi.object({
    title: Joi.string().required().min(3),
    price: Joi.number().required().min(0),
+   short_description: Joi.string(),
+   long_description: Joi.string(),
    image: Joi.string(),
    category: Joi.string(),
 });
@@ -91,6 +93,41 @@ const EditProduct = () => {
                />
                {errors.image && (
                   <span className="text-red-600">{errors.image.message}</span>
+               )}
+            </div>
+            <div className="relative mb-6">
+               <label className="flex  items-center mb-2 text-gray-600 text-sm font-medium">
+                  short description
+               </label>
+               <input
+                  type="text"
+                  id="default-search"
+                  className="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none "
+                  placeholder="name product..."
+                  defaultValue={product?.short_description}
+                  {...register("short_description", { required: true })}
+               />
+               {errors.short_description && (
+                  <span className="text-red-600">
+                     {errors.short_description.message}
+                  </span>
+               )}
+            </div>
+            <div className="relative mb-6">
+               <label className="flex  items-center mb-2 text-gray-600 text-sm font-medium">
+                  long description
+               </label>
+               <input
+                  type="text"
+                  id="default-search"
+                  className="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none "
+                  placeholder="name product..."
+                  {...register("long_description", { required: true })}
+               />
+               {errors.long_description && (
+                  <span className="text-red-600">
+                     {errors.long_description.message}
+                  </span>
                )}
             </div>
             <div className="relative mb-6">

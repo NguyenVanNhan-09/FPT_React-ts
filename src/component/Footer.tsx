@@ -6,9 +6,9 @@ const Footer = () => {
                <div className="md:grid md:grid-cols-9 md:gap-10">
                   <div className="mb-6 col-span-3 pt-9">
                      <div className="min-w-[307px] text-[12.55px] text-[#F9F3EE]">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua
+                        Điều quan trọng là phải chăm sóc bệnh nhân, được bệnh
+                        nhân theo dõi, nhưng điều đó sẽ xảy ra vào thời điểm có
+                        rất nhiều công việc và đau đớn.
                      </div>
                      <div className="flex mt-[25px]">
                         <a
@@ -105,15 +105,16 @@ const Footer = () => {
                   </div>
                   <div className="col-span-2">
                      <h2 className="mb-3 text-[13.38px] font-semibold text-white uppercase dark:text-white">
-                        Um
+                        Một
                      </h2>
+
                      <ul className="text-gray-500 dark:text-gray-400 text-[11.71px]">
                         <li className="pb-3 text-[#F9F3EE]">
                            <a
                               href="https://flowbite.com/"
                               className="hover:underline"
                            >
-                              Kontaktiere uns
+                              Liên hệ chúng tôi
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -121,7 +122,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Über uns
+                              Về chúng tôi
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -129,7 +130,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Karriere
+                              Sự nghiệp
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -137,14 +138,14 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Unternehmensinformationen
+                              Thông tin công ty
                            </a>
                         </li>
                      </ul>
                   </div>
                   <div className="col-span-2">
                      <h2 className="mb-3 text-[13.38px] font-semibold text-white uppercase dark:text-white">
-                        Hilfe
+                        GIÚP ĐỠ
                      </h2>
                      <ul className="text-gray-500 dark:text-gray-400 text-[11.71px]">
                         <li className="pb-3 text-[#F9F3EE]">
@@ -152,7 +153,7 @@ const Footer = () => {
                               href="https://flowbite.com/"
                               className="hover:underline"
                            >
-                              Unsere Produzenten
+                              nhà sản xuất của chúng tôi
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -160,7 +161,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Zahlung
+                              sự chi trả
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -168,7 +169,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Zahlung
+                              sự chi trả
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -176,7 +177,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Stornierung & Rückgabe
+                              Hủy và trả lại
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -184,14 +185,15 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Verstoß melden
+                              Báo cáo một sự vi phạm
                            </a>
                         </li>
                      </ul>
                   </div>
+
                   <div className="col-span-2">
                      <h2 className="mb-3 text-[13.38px] font-semibold text-white uppercase dark:text-white">
-                        politik
+                        CHÍNH TRỊ
                      </h2>
                      <ul className="text-gray-500 dark:text-gray-400 text-[11.71px]">
                         <li className="pb-3 text-[#F9F3EE]">
@@ -199,7 +201,7 @@ const Footer = () => {
                               href="https://flowbite.com/"
                               className="hover:underline"
                            >
-                              Rücknahmegarantie
+                              Đảm bảo hoàn trả
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -207,7 +209,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Nutzungsbedingungen
+                              Điều khoản sử dụng
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -215,7 +217,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Sicherheit
+                              Bảo vệ
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -223,7 +225,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Privatsphäre Seitenverzeichnis
+                              Thư mục trang bảo mật
                            </a>
                         </li>
                         <li className="pb-3 text-[#F9F3EE]">
@@ -231,7 +233,7 @@ const Footer = () => {
                               href="https://tailwindcss.com/"
                               className="hover:underline"
                            >
-                              Seitenverzeichnis
+                              Thư mục trang
                            </a>
                         </li>
                      </ul>
@@ -248,7 +250,7 @@ const Footer = () => {
                   </div>
                   <div className="flex text-white">
                      <a href="#" className="text-[10.04px] pr-3">
-                        Scroll to top
+                        Cuộn lên trên cùng
                      </a>
                      <i className="ti-arrow-up text-[12px]"></i>
                   </div>

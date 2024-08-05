@@ -1,13 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ContactEmail from "../component/ContactEmail";
 import ProductService from "../service/products";
 import { useContext, useEffect, useState } from "react";
 import { TProduct } from "../interface/products";
 import { TCategories } from "../interface/categories";
 import { categoryCT } from "../context/CategoryContext";
+import { cartCT } from "../context/CartContext";
 
 const Detail = () => {
    const { id } = useParams();
+   const navi = useNavigate();
    const productService = new ProductService();
    const { categories } = useContext(categoryCT);
    const [product, setProduct] = useState<TProduct | null>(null);
@@ -28,6 +30,7 @@ const Detail = () => {
       categories && product
          ? categories.find((c: TCategories) => c.id === product.category)?.name
          : "Category not found";
+   const { addCartItem } = useContext(cartCT);
    return (
       <>
          <div className="bg-white pt-[100px]">
@@ -71,9 +74,7 @@ const Detail = () => {
                            </h2>
                            {/* description */}
                            <div className="flex space-x-2 mt-4 text-[16px] text-[#68707D] ">
-                              Lorem Ipsum is simply dummy text of the printing
-                              and typesetting industry. Lorem Ipsum has been the
-                              industry's standard dummy text ever since the
+                              {product?.short_description}
                            </div>
                            {/* Price */}
                            <div className="flex flex-wrap items-center gap-4 mt-8">
@@ -99,6 +100,7 @@ const Detail = () => {
                                           −
                                        </span>
                                     </button>
+
                                     <input
                                        type="number"
                                        className="focus:outline-none text-center w-full font-bold bg-[#F7F8FD] text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-[#505F4E]  outline-none"
@@ -118,8 +120,12 @@ const Detail = () => {
                               <button
                                  type="button"
                                  className="min-w-[200px] px-4 py-2.5 border border-[#4E7C32] bg-[#4E7C32] hover:opacity-85 text-white text-sm font-semibold rounded-lg"
+                                 onClick={() => {
+                                    addCartItem(product);
+                                    navi("/checkout");
+                                 }}
                               >
-                                 Add to cart
+                                 Thêm vào giỏ hàng
                               </button>
                            </div>
                         </div>
@@ -128,26 +134,18 @@ const Detail = () => {
                   <div className="mt-20 max-w-4xl">
                      <div className="mt-8 z-10">
                         <h3 className="text-[30px]  text-[#4E7C32]">
-                           Discription
+                           Mô tả ngắn
                         </h3>
                         <p className="text-xl text-[#665345] mt-4">
-                           Lorem Ipsum is simply dummy text of the printing and
-                           typesetting industry. Lorem Ipsum has been the
-                           industry's standard dummy text ever since the 1500s,
-                           when an unknown printer took a galley of type and
-                           scrambled i
+                           {product?.short_description}
                         </p>
                      </div>
                      <div className="mt-8 z-10">
                         <h3 className="text-[30px]  text-[#4E7C32]">
-                           Discription
+                           Mô tả dài
                         </h3>
                         <p className="text-xl text-[#665345] mt-4">
-                           Lorem Ipsum is simply dummy text of the printing and
-                           typesetting industry. Lorem Ipsum has been the
-                           industry's standard dummy text ever since the 1500s,
-                           when an unknown printer took a galley of type and
-                           scrambled i
+                           {product?.long_description}
                         </p>
                      </div>
                   </div>
@@ -309,7 +307,7 @@ const Detail = () => {
                      </div>
                      <div className="w-[20%]">
                         <button className=" py-2 px-6 bg-[#4E7C32] text-white rounded-xl">
-                           Write reviews
+                           Viết đánh giá
                         </button>
                      </div>
                   </div>
@@ -321,7 +319,7 @@ const Detail = () => {
                            <div className="col-span-1">
                               <div className="flex mb-2">
                                  <div className="text-[16.25px] text-[#4E7C32] pr-3">
-                                    Aman gupta
+                                    An toàn
                                  </div>
                                  {/* star */}
                                  <div className="flex items-center">
@@ -373,13 +371,13 @@ const Detail = () => {
                                  </div>
                               </div>
                               <div className="text-[11.08px]">
-                                 I've been using this cleanser for about five or
-                                 six months now and my acne is almost completely
-                                 gone. I really struggled for years with my skin
-                                 and tried everything possible but this is the
-                                 only thing that managed to clear up my skin.
-                                 100% recommend and will continue to use is for
-                                 sure.
+                                 Tôi đã sử dụng loại sữa rửa mặt này được khoảng
+                                 năm hoặc sáu tháng và mụn của tôi gần như đã
+                                 biến mất hoàn toàn. Tôi thực sự phải vật lộn
+                                 với làn da của mình trong nhiều năm và đã thử
+                                 mọi cách có thể nhưng đây là điều duy nhất giúp
+                                 tôi làm sạch làn da. 100% được giới thiệu và
+                                 chắc chắn sẽ tiếp tục sử dụng.
                               </div>
                            </div>
                         </div>
@@ -389,7 +387,7 @@ const Detail = () => {
                            <div className="col-span-1">
                               <div className="flex mb-2">
                                  <div className="text-[16.25px] text-[#4E7C32] pr-3">
-                                    Aman gupta
+                                    An toàn
                                  </div>
                                  {/* star */}
                                  <div className="flex items-center">
@@ -441,19 +439,19 @@ const Detail = () => {
                                  </div>
                               </div>
                               <div className="text-[11.08px]">
-                                 I've been using this cleanser for about five or
-                                 six months now and my acne is almost completely
-                                 gone. I really struggled for years with my skin
-                                 and tried everything possible but this is the
-                                 only thing that managed to clear up my skin.
-                                 100% recommend and will continue to use is for
-                                 sure.
+                                 Tôi đã sử dụng loại sữa rửa mặt này được khoảng
+                                 năm hoặc sáu tháng và mụn của tôi gần như đã
+                                 biến mất hoàn toàn. Tôi thực sự phải vật lộn
+                                 với làn da của mình trong nhiều năm và đã thử
+                                 mọi cách có thể nhưng đây là điều duy nhất giúp
+                                 tôi làm sạch làn da. 100% được giới thiệu và
+                                 chắc chắn sẽ tiếp tục sử dụng.
                               </div>
                            </div>
                            <div className="col-span-1">
                               <div className="flex mb-2">
                                  <div className="text-[16.25px] text-[#4E7C32] pr-3">
-                                    Aman gupta
+                                    An toàn
                                  </div>
                                  {/* star */}
                                  <div className="flex items-center">
@@ -505,13 +503,13 @@ const Detail = () => {
                                  </div>
                               </div>
                               <div className="text-[11.08px]">
-                                 I've been using this cleanser for about five or
-                                 six months now and my acne is almost completely
-                                 gone. I really struggled for years with my skin
-                                 and tried everything possible but this is the
-                                 only thing that managed to clear up my skin.
-                                 100% recommend and will continue to use is for
-                                 sure.
+                                 Tôi đã sử dụng loại sữa rửa mặt này được khoảng
+                                 năm hoặc sáu tháng và mụn của tôi gần như đã
+                                 biến mất hoàn toàn. Tôi thực sự phải vật lộn
+                                 với làn da của mình trong nhiều năm và đã thử
+                                 mọi cách có thể nhưng đây là điều duy nhất giúp
+                                 tôi làm sạch làn da. 100% được giới thiệu và
+                                 chắc chắn sẽ tiếp tục sử dụng.
                               </div>
                            </div>
                         </div>
@@ -520,7 +518,7 @@ const Detail = () => {
 
                   <div className="flex justify-center mt-10 mb-14">
                      <button className="py-[3px] rounded-lg px-4 text-[12.15px] bg-[#4E7C32] text-white">
-                        See all
+                        Tất cả
                      </button>
                   </div>
                </div>

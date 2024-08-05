@@ -1,16 +1,58 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { categoryCT } from "../context/CategoryContext";
 import { TCategories } from "../interface/categories";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { cartCT } from "../context/CartContext";
+import Example from "./cartExample";
+import { Bounce, toast } from "react-toastify";
 
 const Header = () => {
    const navi = useNavigate();
+   const user = localStorage.getItem("user");
+   const userName = user
+      ? JSON.parse(localStorage.getItem("user")!).name
+      : undefined;
+   const { cartQty } = useContext(cartCT);
+   const [showExample, setShowExample] = useState(false);
    const { categories } = useContext(categoryCT);
    const { register, handleSubmit } = useForm();
    const onSubmit = (data: any) => {
       const { keywords } = data;
       navi(`search?keywords=${keywords}`);
+   };
+   const handleClick = () => {
+      setShowExample(!showExample);
+   };
+   const handleRemoveUser = () => {
+      const isConfirm = confirm("Xác nhập đăng xuất !!!");
+      if (isConfirm) {
+         localStorage.removeItem("user");
+         toast.success("đăng xuất thành công", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+         });
+         navi("/login");
+      } else {
+         toast.warn("đăng xuất không thành công", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+         });
+      }
    };
    return (
       <>
@@ -23,7 +65,7 @@ const Header = () => {
                   >
                      <input
                         type="text"
-                        placeholder="Suchen Sie nach Produkten, Marken und mehr"
+                        placeholder="Tìm kiếm theo sản phẩm, nhãn hiệu và hơn thế nữa"
                         className="w-full outline-none text-[#333] text-sm pl-4 border-transparent"
                         {...register("keywords")}
                      />
@@ -35,29 +77,55 @@ const Header = () => {
                      </button>
                   </form>
                   <a href="#" className="flex items-center">
-                     <span className="text-white pr-2">En</span>
+                     <span className="text-white pr-2">Vn</span>
                      <i className="ti-angle-down text-sm text-white"></i>
                   </a>
                   <div className="flex items-center space-x-8 max-md:ml-auto">
-                     <a href="#" className="flex items-center">
-                        <i className="ti-user text-lg text-white pr-2 "></i>
-                        <span className="text-white">Account</span>
-                     </a>
-                     <a href="#" className="flex items-center relative">
+                     {user ? (
+                        <>
+                           <button
+                              onClick={() => handleRemoveUser()}
+                              className="flex items-center"
+                           >
+                              <i className="ti-user text-lg text-white pr-2 "></i>
+                              <span className="text-white">{userName}</span>
+                           </button>
+                           <Link to={"/admin/home"} className="text-white">
+                              Admin
+                           </Link>
+                        </>
+                     ) : (
+                        <>
+                           <a href="/register" className="flex items-center">
+                              <i className="ti-user text-lg text-white pr-2 "></i>
+                              <span className="text-white">Tài khoản</span>
+                           </a>
+                        </>
+                     )}
+                     <button
+                        onClick={() => handleClick()}
+                        className="flex items-center relative"
+                     >
                         <i className="ti-shopping-cart text-lg text-white pr-2"></i>
                         <span className="absolute rounded-full bg-red-400 w-[16px] h-[16px] text-center leading-[16px] top-0 left-[10px] text-[10px]">
-                           3
+                           {cartQty}
                         </span>
-                        <span className="text-white">Cart</span>
-                     </a>
+                        <span className="text-white">Giỏ hàng</span>
+                     </button>
+                     {showExample && (
+                        <Example
+                           change={showExample}
+                           setChange={setShowExample}
+                        />
+                     )}
                   </div>
                </div>
                <div className="w-full py-5">
                   <ul className="flex w-full justify-between">
                      <li className="flex items-center">
-                        <a href="#">
+                        <a href="/">
                            <span className="text-white text-[13.64px] pr-1">
-                              Beleuchtung
+                              Trang chủ
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
@@ -65,20 +133,20 @@ const Header = () => {
                      <li className="flex items-center relative group">
                         <a href="#">
                            <span className="text-white text-[13.64px] pr-1">
-                              Growbox
+                              Hộp trồng trọt
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
                         <div className="absolute z-10 hidden top-[100%] min-w-[110px] min-h-[74px] bg-white rounded-sm shadow-lg group-hover:block">
                            <ul className="pl-7 pr-5 py-5 list-disc">
-                              <li className="pb-3">Komplettsets</li>
+                              <li className="pb-3">Bộ hoàn chỉnh</li>
                            </ul>
                         </div>
                      </li>
                      <li className="flex items-center">
                         <a href="#">
                            <span className="text-white text-[13.64px] pr-1">
-                              Dünger
+                              phân bón
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
@@ -86,7 +154,7 @@ const Header = () => {
                      <li className="flex items-center">
                         <a href="#">
                            <span className="text-white text-[13.64px] pr-1">
-                              Erde & Substrate
+                              Đất và chất nền
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
@@ -94,14 +162,17 @@ const Header = () => {
                      <li className="flex items-center relative group">
                         <a href="/category">
                            <span className="text-white text-[13.64px] pr-1">
-                              Töpfe & Behälter
+                              Danh mục
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
-                        <div className="absolute hidden z-10 top-[100%] min-w-[110px] min-h-[74px] bg-white rounded-sm shadow-lg group-hover:block">
+                        <div className="absolute hidden top-[100%] min-w-[110px] min-h-[74px]  z-50 bg-white rounded-sm shadow-lg group-hover:block">
                            <ul className="pl-7 pr-5 py-5 list-disc">
                               {categories.map((item: TCategories) => (
-                                 <li key={item.id} className="pb-3">
+                                 <li
+                                    key={item.id}
+                                    className="pb-3 w-full whitespace-nowrap"
+                                 >
                                     <Link to={`/category/${item.id}`}>
                                        {item.name}
                                     </Link>
@@ -113,7 +184,7 @@ const Header = () => {
                      <li className="flex items-center">
                         <a href="#">
                            <span className="text-white text-[13.64px] pr-1">
-                              Bewässerung
+                              Thủy lợi
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
@@ -121,7 +192,7 @@ const Header = () => {
                      <li className="flex items-center">
                         <a href="#">
                            <span className="text-white text-[13.64px] pr-1">
-                              Pflanzen & Gärtnern
+                              Trồng và làm vườn
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>
@@ -129,7 +200,7 @@ const Header = () => {
                      <li className="flex items-center">
                         <a href="#">
                            <span className="text-white text-[13.64px] pr-1">
-                              Lüftung & Klimaanlage
+                              Thông gió và điều hòa không khí
                            </span>
                            <i className="ti-angle-down text-[11px] text-white"></i>
                         </a>

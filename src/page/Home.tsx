@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import ContactEmail from "../component/ContactEmail";
-import Product from "../component/Product";
 import { productCT } from "../context/ProductsContext";
 import { TProduct } from "../interface/products";
 import { categoryCT } from "../context/CategoryContext";
@@ -13,7 +12,7 @@ const Home = () => {
    return (
       <main className="">
          <h3 className="text-[#505F4E] text-3xl mt-8 mb-4 w-[1210px] mx-auto max-w-full font-bold">
-            Best sellers
+            Bán chạy nhất
          </h3>
          <div className="bg-white">
             <div className="w-[1210px] mx-auto max-w-full py-[50px]">
@@ -27,7 +26,7 @@ const Home = () => {
                            <img
                               src={product.image}
                               alt=""
-                              className="h-full w-full object-contain sm:h-[250px] py-6 px-10"
+                              className="h-full w-full object-cover sm:h-[250px] py-6 px-10"
                            />
 
                            <div className="mt-1.5">
@@ -36,7 +35,7 @@ const Home = () => {
                               </p>
                               <div className="mt-3 flex justify-between items-center text-sm">
                                  <h3 className="text-xs text-gray-500 ">
-                                    description
+                                    {product.short_description}
                                  </h3>
 
                                  <p className="text-gray-900 text-[12.76px]">
@@ -47,36 +46,6 @@ const Home = () => {
                         </Link>
                      </div>
                   ))}
-                  {/* <div className="col-span-1 relative">
-                     <span className="absolute py-1  px-2 bg-[#1E2832] text-white text-[10.94px] uppercase">
-                        Sale
-                     </span>
-                     <a href="#" className="group block">
-                        <img
-                           src="../../src/assets/den.png"
-                           alt=""
-                           className="h-full w-full object-contain sm:h-[250px] py-6 px-10"
-                        />
-
-                        <div className="mt-1.5">
-                           <p className="text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                              Töpfe
-                           </p>
-                           <div className="mt-3 flex justify-between items-center text-sm">
-                              <h3 className="text-xs text-gray-500 ">
-                                 5 by 5 pots for planting
-                              </h3>
-
-                              <p className="text-gray-900 line-through text-[12.76px]">
-                                 $ 6130.00
-                              </p>
-                              <p className="text-[#FF6F61] text-[12.58px]">
-                                 $ 6130.00
-                              </p>
-                           </div>
-                        </div>
-                     </a>
-                  </div> */}
                </div>
             </div>
          </div>
@@ -89,7 +58,7 @@ const Home = () => {
                      className="h-full"
                   />
                   <div className="bg-gradient-to-r from-[#FFFFFF] absolute top-7 py-3 px-4 text-xl font-bold w-full">
-                     garten spaten
+                     xẻng làm vườn
                   </div>
                </div>
                <div className="col-span-4 grid grid-cols-2 grid-rows-2 gap-3">
@@ -100,7 +69,7 @@ const Home = () => {
                         className="w-full h-[277px]"
                      />
                      <div className="bg-gradient-to-r from-[#FFFFFF] absolute top-7 py-3 px-4 text-xl font-bold w-full">
-                        sand
+                        Cát
                      </div>
                   </div>
                   <div className="col-span-1 relative cursor-pointer">
@@ -110,7 +79,7 @@ const Home = () => {
                         className="w-full h-[277px]"
                      />
                      <div className="bg-gradient-to-r from-[#FFFFFF] absolute top-7 py-3 px-4 text-xl font-bold w-full">
-                        pflanzer
+                        Chậu
                      </div>
                   </div>
                   <div className="col-span-1 relative cursor-pointer">
@@ -120,7 +89,7 @@ const Home = () => {
                         className="w-full h-[277px]"
                      />
                      <div className="bg-gradient-to-r from-[#FFFFFF] absolute top-7 py-3 px-4 text-xl font-bold w-full">
-                        schlammkuchen
+                        Bánh bùn
                      </div>
                   </div>
                   <div className="col-span-1 relative cursor-pointer">
@@ -130,7 +99,7 @@ const Home = () => {
                         className="w-full h-[277px]"
                      />
                      <div className="bg-gradient-to-r from-[#FFFFFF] absolute top-7 py-3 px-4 text-xl font-bold w-full">
-                        klemmen
+                        Cái kẹp
                      </div>
                   </div>
                </div>
@@ -156,7 +125,7 @@ const Home = () => {
                      />
                      <div className="absolute top-4 right-3 items-end text-white">
                         <div className="text-lg font-bold">{item.name}</div>
-                        <span className="text-xs">{productCount} items</span>
+                        <span className="text-xs">{productCount} sản phẩm</span>
                      </div>
                   </Link>
                );

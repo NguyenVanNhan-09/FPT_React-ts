@@ -4,28 +4,46 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import Joi from "joi";
 import { TProduct } from "../../interface/products";
 import { productCT } from "../../context/ProductsContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { categoryCT } from "../../context/CategoryContext";
 import { TCategories } from "../../interface/categories";
+import ProductService from "../../service/products";
 
 const productSchema = Joi.object({
    title: Joi.string().required().min(3),
    price: Joi.number().required().min(0),
    image: Joi.string(),
+   short_description: Joi.string().allow(""),
+   long_description: Joi.string().allow(""),
    category: Joi.string(),
 });
 
 const AddProduct = () => {
    const navi = useNavigate();
+   const productService = new ProductService();
    const { handleSubmitAdd } = useContext(productCT);
    const { categories } = useContext(categoryCT);
+   const [image, setImage] = useState<string>("");
+   const [status, setStatus] = useState<string>("");
    const {
       register,
       handleSubmit,
       formState: { errors },
    } = useForm<TProduct>({ resolver: joiResolver(productSchema) });
+   const upload = async (file: any) => {
+      console.log(file);
+      setStatus("Đang tải....");
+      const formData = new FormData();
+      formData.append("file", file[0]);
+      formData.append("upload_preset", "o70gyljw");
+      const image = await productService.UploadImageProductToCloudinary(
+         formData
+      );
+      setImage(image.url);
+      setStatus("");
+   };
    const onSubmit = async (data: TProduct) => {
-      await handleSubmitAdd(data);
+      await handleSubmitAdd({ ...data, image });
       navi("/admin/products-list");
       location.reload();
    };
@@ -67,18 +85,53 @@ const AddProduct = () => {
                )}
             </div>
             <div className="relative mb-6">
-               <label className="flex  items-center mb-2 text-gray-600 text-sm font-medium">
+               <label className="flex items-center mb-2 text-gray-600 text-sm font-medium">
                   Images
+               </label>
+               <div className="flex items-center">
+                  <input
+                     type="file"
+                     onChange={(e) => upload(e.target.files!)}
+                     className="h-11 leading-7 text-base font-normal shadow-xs text-gray-900 placeholder-gray-400 focus:outline-none"
+                  />
+                  {status}
+                  {image && (
+                     <img src={image} alt="Product preview" width={100} />
+                  )}
+               </div>
+            </div>
+            <div className="relative mb-6">
+               <label className="flex  items-center mb-2 text-gray-600 text-sm font-medium">
+                  short description
                </label>
                <input
                   type="text"
                   id="default-search"
                   className="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none "
-                  placeholder="images.."
-                  {...register("image", { required: true })}
+                  placeholder="name product..."
+                  {...register("short_description", { required: true })}
                />
-               {errors.image && (
-                  <span className="text-red-600">{errors.image.message}</span>
+               {errors.short_description && (
+                  <span className="text-red-600">
+                     {errors.short_description.message}
+                  </span>
+               )}
+            </div>
+            <div className="relative mb-6">
+               <label className="flex  items-center mb-2 text-gray-600 text-sm font-medium">
+                  long description
+               </label>
+               <input
+                  type="text"
+                  id="default-search"
+                  className="block w-full h-11 px-5 py-2.5 leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none "
+                  placeholder="name product..."
+                  {...register("long_description", { required: true })}
+               />
+               {errors.long_description && (
+                  <span className="text-red-600">
+                     {errors.long_description.message}
+                  </span>
                )}
             </div>
             <div className="relative mb-6">
@@ -96,9 +149,8 @@ const AddProduct = () => {
                      Category...
                   </option>
                   {categories.map((i: TCategories) => (
-                     <option defaultValue={i.id}>{i.name}</option>
+                     <option value={i.id}>{i.name}</option>
                   ))}
-                  {/* Thêm các tùy chọn khác tại đây */}
                </select>
                {errors.category && (
                   <span className="text-red-600">

@@ -1,4 +1,11 @@
 function Dashboard() {
+   const user = localStorage.getItem("user");
+   const userName = user
+      ? JSON.parse(localStorage.getItem("user")!).name
+      : undefined;
+   const userEmail = user
+      ? JSON.parse(localStorage.getItem("user")!).email
+      : undefined;
    return (
       <>
          <div className="flex h-full flex-col justify-between border-e bg-white">
@@ -151,10 +158,10 @@ function Dashboard() {
                   <div>
                      <p className="text-xs">
                         <strong className="block font-medium">
-                           Eric Frusciante
+                           {userName}
                         </strong>
 
-                        <span> eric@frusciante.com </span>
+                        <span>{userEmail} </span>
                      </p>
                   </div>
                </a>

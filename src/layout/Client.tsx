@@ -9,6 +9,9 @@ const Client = () => {
       location.pathname.includes("/category") ||
       location.pathname.includes("/product-detail/") ||
       location.pathname.includes("/search") ||
+      location.pathname.includes("/login") ||
+      location.pathname.includes("/register") ||
+      location.pathname.includes("/checkout") ||
       location.pathname.includes("/admin");
    const hideHeaderFooter = location.pathname.includes("/admin");
    return (
@@ -17,7 +20,7 @@ const Client = () => {
             {!hideHeaderFooter && <Header />}
             {!hideBanner && <CarouselDefault />}
             <Outlet />
-            <div className="shadow-[1000px_-240px_202px_50px_rgb(188,222,182)]">
+            <div className="shadow-[1000px_-100px_202px_170px_rgb(188,222,182)]">
                {!hideHeaderFooter && <Footer />}
             </div>
          </div>

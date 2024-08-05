@@ -13,6 +13,9 @@ import AddProduct from "./page/Admin/AddProduct";
 import EditProduct from "./page/Admin/EditProduct";
 import AddCategory from "./page/Admin/AddCategory";
 import Search from "./component/Search";
+import Register from "./component/Register";
+import Login from "./component/Login";
+import Checkout from "./page/Checkout";
 
 function App() {
    // Routers
@@ -31,6 +34,9 @@ function App() {
             { path: "search", element: <Search /> },
             { path: "category/:id", element: <Category /> },
             { path: "product-detail/:id", element: <Detail /> },
+            { path: "register", element: <Register /> },
+            { path: "login", element: <Login /> },
+            { path: "checkout", element: <Checkout /> },
          ],
       },
       {

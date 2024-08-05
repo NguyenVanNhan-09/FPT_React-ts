@@ -1,87 +1,294 @@
 {
-   "products": [
+  "products": [
+    {
+      "title": "Product 162",
+      "price": 1082,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOk_Z2l6Qsdg6BO3fhHSJZs1O3Wv4QQknng&s",
+      "short_description": "description_122",
+      "long_description": "câccacacaaaaaaaaaaaaaaaa2",
+      "category": "3",
+      "id": "1"
+    },
+    {
+      "title": "Product 15",
+      "price": 1002,
+      "short_description": "description_2",
+      "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+      "image": "https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg",
+      "category": "1",
+      "id": "2"
+    },
+    {
+      "title": "Product 12",
+      "price": 10022,
+      "short_description": "description_3",
+      "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+      "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
+      "category": "1",
+      "id": "3"
+    },
+    {
+      "title": "Product 1",
+      "price": 1001,
+      "short_description": "description_4",
+      "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+      "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+      "category": "1",
+      "id": "4"
+    },
+    {
+      "title": "Product test uddd",
+      "price": 11,
+      "short_description": "description_5",
+      "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrZqTCInyg6RfYC7Ape20o-EWP1EN_A8fOA&s",
+      "category": "1",
+      "id": "aa9c"
+    },
+    {
+      "title": "test categoryc",
+      "price": 91220042,
+      "short_description": "description_6",
+      "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+      "image": "https://imageio.forbes.com/specials-images/imageserve/5faad4255239c9448d6c7bcd/Best-Animal-Photos-Contest--Close-Up-Of-baby-monkey/960x0.jpg?format=jpg&width=960",
+      "category": "3",
+      "id": "dc4c"
+    },
+    {
+      "title": "chậu cây",
+      "price": 1122,
+      "image": "https://deepai.org/static/images/cyberpunkdolphin.png",
+      "short_description": "description_7",
+      "long_description": "kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+      "category": "2",
+      "id": "bc6a"
+    },
+    {
+      "title": "cây hoa",
+      "price": 1111,
+      "image": "https://picsum.photos/400/300",
+      "short_description": "câccacacacaca",
+      "long_description": "câccacacaaaaaaaaaaaaaaa",
+      "category": "2",
+      "id": "a5e1"
+    },
+    {
+      "title": "xxxx",
+      "price": 999999,
+      "image": "https://picsum.photos/200/200",
+      "short_description": "description_7",
+      "long_description": "zzzzzzzzzzzzzzzzzzzzz",
+      "category": "5afd",
+      "id": "jHUz0It"
+    },
+    {
+      "title": "bbb",
+      "price": 123000,
+      "image": "https://picsum.photos/200/290",
+      "short_description": "bbbbbbbb",
+      "long_description": "bbbbbbbbbbbbbbbbbbb",
+      "category": "3",
+      "id": "CU8gW-R"
+    },
+    {
+      "title": "zzzzzz",
+      "price": 999999,
+      "image": "https://picsum.photos/200/200",
+      "short_description": "",
+      "long_description": "",
+      "category": "5afd",
+      "id": "3x3u-5Y"
+    },
+    {
+      "title": "test cloud",
+      "price": 111,
+      "short_description": "aaaa",
+      "long_description": "xxxxxxxxxxxxxxxxxxx",
+      "category": "2",
+      "image": "http://res.cloudinary.com/dbaq8kdwn/image/upload/v1722854651/svozzldyfwlrseniqcm0.png",
+      "id": "q7zad0C"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Danh mục 1",
+      "image": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
+    },
+    {
+      "id": "2",
+      "name": "Danh mục 2",
+      "image": "https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg"
+    },
+    {
+      "id": "3",
+      "name": "Danh mục 3",
+      "image": "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
+    },
+    {
+      "id": "5afd",
+      "name": "Danh mục 5",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX029ohIUSygq9zirl9fSNBwSLqEOaKEYuw&s"
+    },
+    {
+      "id": "2c23",
+      "name": "Danh mục 4",
+      "image": "https://deepai.org/static/images/cyberpunkdolphin.png"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Nhân Nguyễn",
+      "email": "admin@gmail.com",
+      "password": "acn1iu22d3i2u2"
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$EYDQoox/Eakq46CVRYOt8OWdm2YbNS3WVWS0pRZ9RB3pJuRkpwG2G",
+      "name": "user",
+      "id": 2
+    },
+    {
+      "email": "thuy@gmail.com",
+      "password": "$2a$10$VMme3QSsGh0IUca/PHoF1.YLcuy5MrkhL9y8cLu6CoRyDuw6blXDq",
+      "name": "thuỷ",
+      "id": 3
+    }
+  ],
+  "cart": [
+    {
+      "id": 1
+    },
+    [
       {
-         "title": "Product 16",
-         "price": 108,
-         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAOk_Z2l6Qsdg6BO3fhHSJZs1O3Wv4QQknng&s",
-         "category": "1",
-         "id": "1"
-      },
-      {
-         "title": "Product 15",
-         "price": 1002,
-         "image": "https://img.freepik.com/free-photo/abstract-autumn-beauty-multi-colored-leaf-vein-pattern-generated-by-ai_188544-9871.jpg",
-         "category": "1",
-         "id": "2"
-      },
-      {
-         "title": "Product 12",
-         "price": 10022,
-         "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
-         "category": "1",
-         "id": "3"
-      },
-      {
-         "title": "Product 1",
-         "price": 1001,
-         "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
-         "category": "1",
-         "id": "4"
-      },
-      {
-         "title": "Product test udd",
-         "price": 9122004,
-         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrZqTCInyg6RfYC7Ape20o-EWP1EN_A8fOA&s",
-         "category": "1",
-         "id": "aa9c"
-      },
-      {
-         "title": "test categoryc",
-         "price": 91220042,
-         "image": "https://imageio.forbes.com/specials-images/imageserve/5faad4255239c9448d6c7bcd/Best-Animal-Photos-Contest--Close-Up-Of-baby-monkey/960x0.jpg?format=jpg&width=960",
-         "category": "3",
-         "id": "dc4c"
-      },
-      {
-         "title": "fgfgfgccc",
-         "price": 112,
-         "image": "https://deepai.org/static/images/cyberpunkdolphin.png",
-         "category": "1",
-         "id": "bc6a"
-      },
-      {
-         "title": "hi2 qô2",
-         "price": 111121,
-         "image": "https://picsum.photos/400/300",
-         "category": "5afd",
-         "id": "a5e1"
+        "title": "Product 12",
+        "price": 10022,
+        "short_description": "description_3",
+        "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+        "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
+        "category": "1",
+        "id": "3",
+        "qty": 1
       }
-   ],
-   "categories": [
+    ],
+    [
       {
-         "id": "1",
-         "name": "Category 1",
-         "image": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
+        "title": "Product 12",
+        "price": 10022,
+        "short_description": "description_3",
+        "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+        "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
+        "category": "1",
+        "id": "3",
+        "qty": 6
       },
       {
-         "id": "2",
-         "name": "Category 2",
-         "image": "https://h5p.org/sites/default/files/h5p/content/1209180/images/file-6113d5f8845dc.jpeg"
-      },
-      {
-         "id": "3",
-         "name": "Category 3",
-         "image": "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
-      },
-      {
-         "id": "5afd",
-         "name": "Category 5",
-         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX029ohIUSygq9zirl9fSNBwSLqEOaKEYuw&s"
-      },
-      {
-         "id": "2c23",
-         "name": "Category 4",
-         "image": "https://deepai.org/static/images/cyberpunkdolphin.png"
+        "title": "Product 1",
+        "price": 1001,
+        "short_description": "description_4",
+        "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+        "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+        "category": "1",
+        "id": "4",
+        "qty": 2
       }
-   ]
+    ],
+    {
+      "name": "",
+      "email": "",
+      "phone": "",
+      "items": [
+        {
+          "title": "Product 12",
+          "price": 10022,
+          "short_description": "description_3",
+          "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+          "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
+          "category": "1",
+          "id": "3",
+          "qty": 1
+        },
+        {
+          "title": "Product 1",
+          "price": 1001,
+          "short_description": "description_4",
+          "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+          "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+          "category": "1",
+          "id": "4",
+          "qty": 1
+        }
+      ],
+      "total": 11023,
+      "id": 3
+    },
+    {
+      "name": "nhân",
+      "email": "user@gmail.com",
+      "phone": "0344639810",
+      "items": [
+        {
+          "title": "Product 1",
+          "price": 1001,
+          "short_description": "description_4",
+          "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+          "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+          "category": "1",
+          "id": "4",
+          "qty": 1
+        }
+      ],
+      "total": 1001,
+      "id": 4
+    },
+    {
+      "name": "axaxa",
+      "email": "admin@gmail.com",
+      "phone": "1231231231",
+      "items": [
+        {
+          "title": "Product 1",
+          "price": 1001,
+          "short_description": "description_4",
+          "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+          "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+          "category": "1",
+          "id": "4",
+          "qty": 2
+        },
+        {
+          "title": "Product 12",
+          "price": 10022,
+          "short_description": "description_3",
+          "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+          "image": "https://gratisography.com/wp-content/uploads/2024/01/gratisography-cyber-kitty-800x525.jpg",
+          "category": "1",
+          "id": "3",
+          "qty": 2
+        }
+      ],
+      "total": 22046,
+      "id": 5
+    },
+    {
+      "name": "nhan",
+      "email": "admin@gmail.com",
+      "phone": "0346464646",
+      "items": [
+        {
+          "title": "Product 1",
+          "price": 1001,
+          "short_description": "description_4",
+          "long_description": "Kiểu dáng ôm vừa vặn, tay áo dài raglan tương phản, túi henley ba nút, trọng lượng nhẹ và vải mềm giúp thoáng khí và thoải mái khi mặc. Và những chiếc áo sơ mi có đường khâu chắc chắn với cổ tròn được thiết kế để đảm bảo độ bền và rất phù hợp với trang phục thời trang thông thường và những người hâm mộ bóng chày cuồng nhiệt. Đường viền cổ tròn theo phong cách Henley bao gồm một chiếc túi ba nút.",
+          "image": "https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649",
+          "category": "1",
+          "id": "4",
+          "qty": 1
+        }
+      ],
+      "total": 1001,
+      "id": 6
+    }
+  ]
 }
